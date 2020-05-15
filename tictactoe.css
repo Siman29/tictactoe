@@ -1,0 +1,106 @@
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body {
+        position: relative;
+        background-image: url("image.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .game_status {
+        text-align: center;
+        color: red;
+        font-size: 16px;
+    }
+    
+    .container {
+        position: relative;
+        text-align: center;
+        margin: 100px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .card {
+        position: relative;
+        text-align: center;
+        margin: 70px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    form {
+        position: relative;
+        font-size: 20px;
+        margin: 30px;
+        padding: 30px;
+        justify-content: center;
+    }
+    
+    input {
+        position: relative;
+        background: none;
+        border: transparent;
+        margin: 10px;
+        padding: 10px;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        font-size: large;
+    }
+    
+    input:hover {
+        transition: 1.4s ease-out;
+        transform: scale(1.02, 1.05);
+        border-bottom: 2px solid whitesmoke;
+        border-left: 1px solid whitesmoke;
+        background-color: black;
+        color: whitesmoke;
+    }
+    
+    button {
+        position: relative;
+        background: none;
+        border: 2px solid black;
+        margin: 10px;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    
+    button:hover {
+        transition: 1.4s ease-out;
+        transform: scale(1.02, 1.05);
+        background-color: black;
+        color: whitesmoke;
+    }
+    
+    .board {
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        margin-top: 10px;
+        margin-left: 480px;
+        margin-right: 480px;
+        margin-bottom: 20px;
+        justify-content: center;
+        background-color: black;
+    }
+    
+    .square {
+        height: 50px;
+        width: 62px;
+        border: 2px solid whitesmoke;
+        background: none;
+        cursor: pointer;
+        color: rgb(158, 152, 152);
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    .square:hover {
+        transition: 1.4s ease-out;
+        transform: scale(1.05, 1.08);
+        box-shadow: 5px 5px 9px rgb(221, 19, 19), rgb(233, 219, 219);
+        border: 2px solid rgb(221, 13, 13);
+    }
