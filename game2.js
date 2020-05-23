@@ -72,7 +72,7 @@ function computerMove() {
 
 function minimax(gamestate, depth, isMaximizing) {
     let r = Number(result());
-    if (!gameactive) {
+    if (r) {
         return r;
     }
     let d = depth;
@@ -84,9 +84,8 @@ function minimax(gamestate, depth, isMaximizing) {
                 d = d + 1;
                 let score = Number(minimax(gamestate, d, false));
                 gamestate[i] = "";
-                if (score > bestscore) {
-                    bestscore = score;
-                }
+                bestscore = Math.max(score, bestscore)
+
             }
         }
         return bestscore;
@@ -98,9 +97,7 @@ function minimax(gamestate, depth, isMaximizing) {
                 d = d + 1;
                 let score = Number(minimax(gamestate, d, true));
                 gamestate[i] = "";
-                if (score < bestscore) {
-                    bestscore = score;
-                }
+                bestscore = Math.min(score, bestscore)
             }
         }
         return bestscore;
@@ -165,8 +162,6 @@ function result() {
     } else if (draw) {
         gameactive = false;
         return 0;
-    } else {
-        return;
     }
 }
 

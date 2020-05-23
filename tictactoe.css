@@ -24,10 +24,14 @@
     }
     
     .card {
-        position: relative;
-        text-align: center;
-        margin: 70px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    
+    .label {
+        margin: 5px;
+        display: block;
+        border: 1px solid red;
     }
     
     form {

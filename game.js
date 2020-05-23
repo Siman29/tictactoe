@@ -8,6 +8,15 @@ name2 = unescape(temp[1]);
 
 alert("Player1: " + name1 + "  Player2: " + name2);
 
+document.getElementById("name1").innerHTML = name1;
+document.getElementById("score1").innerHTML = 0;
+document.getElementById("name2").innerHTML = name2;
+document.getElementById("score2").innerHTML = 0;
+document.getElementById("score").innerHTML = 0;
+var c1 = 0;
+var c2 = 0;
+var cdraw = 0;
+
 var gameactive = true;
 var statusDisplay = document.querySelector('.game_status');
 var gamestate = ["", "", "", "", "", "", "", "", ""];
@@ -59,6 +68,13 @@ function result() {
     }
     if (won) {
         statusDisplay.innerHTML = winningMessage();
+        if (currentplayer === "X") {
+            c1 = c1 + 1;
+            document.getElementById("score1").innerHTML = c1;
+        } else if (currentplayer === "O") {
+            c2 = c2 + 1;
+            document.getElementById("score2").innerHTML = c2;
+        }
         gameactive = false;
         return;
     }
@@ -66,6 +82,8 @@ function result() {
     var draw = !gamestate.includes("");
     if (draw) {
         statusDisplay.innerHTML = drawMessage();
+        cdraw = cdraw + 1;
+        document.getElementById("score").innerHTML = cdraw;
         gameactive = false;
         return;
     }
