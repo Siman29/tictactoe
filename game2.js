@@ -6,6 +6,7 @@ name1 = unescape(temp[1]);
 temp = parameters[1].split("=");
 player1 = unescape(temp[1]);
 
+
 alert("Player1: " + name1 + "  Symbol u have chosed: " + player1);
 
 var gameactive = true;
@@ -19,6 +20,15 @@ if (player1 === "X") {
 var name2 = "Computer";
 currentplayer = player2;
 name = name2;
+var c1 = 0;
+var c2 = 0;
+var cdraw = 0;
+document.getElementById("name1").innerHTML = name1;
+document.getElementById("score1").innerHTML = 0;
+document.getElementById("name2").innerHTML = name2;
+document.getElementById("score2").innerHTML = 0;
+document.getElementById("draw").innerHTML = "Draw"
+document.getElementById("score").innerHTML = 0;
 var win = [
     [0, 1, 2],
     [3, 4, 5],
@@ -33,6 +43,7 @@ var winningMessage = () => `Congratulations, ${name} has won!`;
 var drawMessage = () => `Ooopps.....Game ended in a draw!..Lets try once more`;
 var currentPlayerTurn = () => `It's ${name}'s turn`;
 statusDisplay.innerHTML = currentPlayerTurn();
+
 
 
 
@@ -108,8 +119,17 @@ function minimax(gamestate, depth, isMaximizing) {
 function display(r) {
     if (r === 1 || r === -1) {
         statusDisplay.innerHTML = winningMessage();
+        if (r === 1) {
+            c2 = c2 + 1;
+            document.getElementById("score2").innerHTML = c2;
+        } else {
+            c1 = c1 + 1;
+            document.getElementById("score1").innerHTML = c1;
+        }
     } else if (r === 0) {
         statusDisplay.innerHTML = drawMessage();
+        cdraw = cdraw + 1;
+        document.getElementById("score").innerHTML = cdraw;
     } else {
         return;
     }
@@ -154,15 +174,19 @@ function result() {
     var draw = !gamestate.includes("");
     if (won) {
         gameactive = false;
+
         if (currentplayer === player1) {
             return -1;
         } else if (currentplayer === player2) {
             return 1;
         }
+
     } else if (draw) {
         gameactive = false;
         return 0;
     }
+
+
 }
 
 function restart() {

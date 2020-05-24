@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Tic Tac Toe</title>
+    <title>Person VS Person</title>
     <link rel="stylesheet" href="tictactoe.css">
 
 </head>
@@ -9,22 +9,26 @@
 <body>
 
     <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <div class="card">
-            <label><label id="name1"></label>: <label id="score1"></label></label>
-            <label><label id="name2"></label>: <label id="score2"></label></label>
-            <label><label id="draw">Draw</label>: <label id="score"></label></label>
-        </div>
-        <div class="board">
-            <div data-cell-index="0" id="0" class="square"></div>
-            <div data-cell-index="1" id="1" class="square"></div>
-            <div data-cell-index="2" id="2" class="square"></div>
-            <div data-cell-index="3" id="3" class="square"></div>
-            <div data-cell-index="4" id="4" class="square"></div>
-            <div data-cell-index="5" id="5" class="square"></div>
-            <div data-cell-index="6" id="6" class="square"></div>
-            <div data-cell-index="7" id="7" class="square"></div>
-            <div data-cell-index="8" id="8" class="square"></div>
+        <h1>TIC TAC TOE</h1>
+        <div class="container1">
+            <div class="board">
+                <div data-cell-index="0" id="0" class="square"></div>
+                <div data-cell-index="1" id="1" class="square"></div>
+                <div data-cell-index="2" id="2" class="square"></div>
+                <div data-cell-index="3" id="3" class="square"></div>
+                <div data-cell-index="4" id="4" class="square"></div>
+                <div data-cell-index="5" id="5" class="square"></div>
+                <div data-cell-index="6" id="6" class="square"></div>
+                <div data-cell-index="7" id="7" class="square"></div>
+                <div data-cell-index="8" id="8" class="square"></div>
+            </div>
+            <div class="card">
+                <label>SCORE</label>
+                <label>BOARD</label><br/><br/>
+                <label id="name1"></label>: <label id="score1"></label><br/><br/>
+                <label id="name2"></label>: <label id="score2"></label><br/><br/>
+                <label id="draw"></label>: <label id="score"></label>
+            </div>
         </div>
         <h2 class="game_status"></h2>
 
@@ -35,6 +39,10 @@
     </div>
     <script src="game.js"></script>
 </body>
+
+<footer class="footer1">
+    <p>&copy; 2020 Siman Parveen siman.parveen@gmail.com</p>
+</footer>
 
 
 </html>

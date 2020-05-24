@@ -23,15 +23,43 @@
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     
-    .card {
+    .container1 {
+        margin-top: 10px;
+        display: inline-flex;
+        text-align: center;
+    }
+    
+    .card1 {
+        margin-top: 30px;
         font-size: 20px;
+        display: block;
         font-weight: bolder;
     }
     
-    .label {
-        margin: 5px;
-        display: block;
-        border: 1px solid red;
+    .card {
+        font-size: 20px;
+        display: inline-block;
+        font-weight: bolder;
+        padding-top: 6px;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-bottom: 2px;
+        margin-left: 100px;
+        border: 2px solid black;
+        border-radius: 10%;
+    }
+    
+    .card:hover {
+        transition: 1.8s ease-out;
+        transform: scale(1.02, 1.05);
+        background-color: black;
+        border: 2px solid whitesmoke;
+        color: whitesmoke;
+    }
+    
+    label {
+        display: inline-block;
+        text-align: center;
     }
     
     form {
@@ -84,8 +112,6 @@
         flex-wrap: wrap;
         width: 200px;
         margin-top: 10px;
-        margin-left: 480px;
-        margin-right: 480px;
         margin-bottom: 20px;
         justify-content: center;
         background-color: black;
@@ -107,4 +133,16 @@
         transform: scale(1.05, 1.08);
         box-shadow: 5px 5px 9px rgb(221, 19, 19), rgb(233, 219, 219);
         border: 2px solid rgb(221, 13, 13);
+    }
+    
+    footer {
+        padding-top: 200px;
+        text-align: center;
+        font-weight: bolder;
+    }
+    
+    .footer1 {
+        padding-top: 60px;
+        text-align: center;
+        font-weight: bolder;
     }

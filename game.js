@@ -12,6 +12,7 @@ document.getElementById("name1").innerHTML = name1;
 document.getElementById("score1").innerHTML = 0;
 document.getElementById("name2").innerHTML = name2;
 document.getElementById("score2").innerHTML = 0;
+document.getElementById("draw").innerHTML = "Draw"
 document.getElementById("score").innerHTML = 0;
 var c1 = 0;
 var c2 = 0;
