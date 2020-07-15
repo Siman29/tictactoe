@@ -54,10 +54,11 @@ function playerMove() {
 function computerMove() {
     let bestscore = -Infinity;
     let bestMove;
+    let score;
     for (let i = 0; i <= 8; i++) {
         if (gamestate[i] == "") {
             gamestate[i] = player2;
-            let score = Number(minimax(gamestate, 0, true));
+            score = minimax(gamestate, 0, false);
             gamestate[i] = "";
             if (score > bestscore) {
                 bestscore = score;
@@ -82,33 +83,42 @@ function computerMove() {
 
 
 function minimax(gamestate, depth, isMaximizing) {
-    let r = Number(result());
-    if (r) {
+    let r = result();
+    if (r == 10) {
+        r = r - depth;
         return r;
+    } else if (r == -10) {
+        r = r + depth;
+        return r;
+    } else if (r == 0) {
+        return 0;
     }
-    let d = depth;
+
+
+    let bestscore;
     if (isMaximizing) {
-        let bestscore = -Infinity;
+        bestscore = -Infinity;
         for (let i = 0; i <= 8; i++) {
             if (gamestate[i] == "") {
                 gamestate[i] = player2;
-                d = d + 1;
-                let score = Number(minimax(gamestate, d, false));
+                let score = minimax(gamestate, depth + 1, false);
                 gamestate[i] = "";
-                bestscore = Math.max(score, bestscore)
-
+                if (score > bestscore) {
+                    bestscore = score;
+                }
             }
         }
         return bestscore;
-    } else if (!isMaximizing) {
-        let bestscore = Infinity;
+    } else {
+        bestscore = Infinity;
         for (let i = 0; i <= 8; i++) {
             if (gamestate[i] == "") {
                 gamestate[i] = player1;
-                d = d + 1;
-                let score = Number(minimax(gamestate, d, true));
+                let score = minimax(gamestate, depth + 1, true);
                 gamestate[i] = "";
-                bestscore = Math.min(score, bestscore)
+                if (score < bestscore) {
+                    bestscore = score;
+                }
             }
         }
         return bestscore;
@@ -117,9 +127,10 @@ function minimax(gamestate, depth, isMaximizing) {
 }
 
 function display(r) {
-    if (r === 1 || r === -1) {
+    if (r == 10 || r == -10) {
+        gameactive = false;
         statusDisplay.innerHTML = winningMessage();
-        if (r === 1) {
+        if (r == 10) {
             c2 = c2 + 1;
             document.getElementById("score2").innerHTML = c2;
         } else {
@@ -164,26 +175,32 @@ function result() {
         var a = gamestate[wincond[0]];
         var b = gamestate[wincond[1]];
         var c = gamestate[wincond[2]];
-        if (a === "" || b === "" || c === "") {
+        if (a == "" || b == "" || c == "") {
             continue;
         } else if (a === b && b === c) {
             won = true;
+            gameactive = false;
             break;
         }
     }
+    let openSpots = 0;
+    for (let i = 0; i <= 8; i++) {
+        if (gamestate[i] == "") {
+            openSpots = openSpots + 1;
+        }
+    }
     var draw = !gamestate.includes("");
-    if (won) {
-        gameactive = false;
 
-        if (currentplayer === player1) {
-            return -1;
-        } else if (currentplayer === player2) {
-            return 1;
+
+    if (draw && openSpots == 0) {
+        return 0;
+    } else if (won) {
+        if (currentplayer == player1) {
+            return -10;
+        } else if (currentplayer == player2) {
+            return 10;
         }
 
-    } else if (draw) {
-        gameactive = false;
-        return 0;
     }
 
 
