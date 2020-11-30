@@ -50,7 +50,7 @@
     }
     
     .card:hover {
-        transition: 1.8s ease-out;
+        transition: 1.02s ease-out;
         transform: scale(1.02, 1.05);
         background-color: black;
         border: 2px solid whitesmoke;
@@ -145,4 +145,24 @@
         padding-top: 60px;
         text-align: center;
         font-weight: bolder;
+    }
+    
+    @media print {
+        body {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width: 700px) {
+        .container1 {
+            width: 100%;
+            display: block;
+        }
+        .board {
+            margin-left: 60px;
+        }
+        .card {
+            width: 50%;
+            margin-left: 2%;
+        }
     }
