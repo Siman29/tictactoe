@@ -159,10 +159,17 @@
             display: block;
         }
         .board {
-            margin-left: 60px;
+            margin-left: 5%;
         }
         .card {
             width: 50%;
             margin-left: 2%;
+        }
+        button {
+            background-color: rgb(252, 252, 252);
+            color: rgb(0, 0, 0);
+        }
+        .footer1 {
+            width: 70%;
         }
     }
